@@ -1,0 +1,94 @@
+998 "ASCII Costar estimate."
+0   Written:        03/15/12 18:48:50
+900 File Version:   7.00
+901 Costar Version: 7.01
+902 Build:          7.0.2.618
+904 Sequence Number:00240140732624480534112011256
+905 Version:        Costar 7.02
+906 Serial Number:  70 - 01926                              
+estcreate "MPEMS"
+dbselect "early_design.2000_Waterfall"
+calcmodel intermediate
+prec 4
+flex 4
+resl 3
+team 5
+pmat 3
+wsname *
+sced  nominal
+amcf *
+wsstartpoint 2
+rename "Component1"
+RUSE  nominal
+CD92     high
+CD93     high
+CD94  nominal
+wsca  0  0  4.00
+wsca  0  1  3.00
+wsca  0  2  3.00
+wsca  1  0  3.00
+wsca  1  1  0.00
+wsca  1  2  3.00
+wsca  2  0  3.00
+wsca  2  1  2.50
+wsca  2  2  0.00
+wsca  3  0  0.00
+wsca  3  1  0.00
+wsca  3  2  2.50
+wsca  4  0  1.00
+wsca  4  1  0.00
+wsdsipfp    29
+wsfp  0  0    15
+wsfp  0  1     3
+wsfp  0  2     0
+wsfp  1  0     3
+wsfp  1  1     2
+wsfp  1  2     0
+wsfp  2  0    10
+wsfp  2  1     0
+wsfp  2  2     0
+wsfp  3  0     0
+wsfp  3  1     0
+wsfp  3  2     0
+wsfp  4  0    16
+wsfp  4  1     4
+wsfp  4  2     0
+increment 1
+set auto on
+910 Lines:                       63
+911 Characters:                1001
+912 File Size:                 1337
+913 Checksum 1:                  70
+914 Checksum 2:                  68
+915 Checksum 3: 0460373457767730909
+1000 "MPEMS"
+1001 "    "
+1002 152
+1003 100
+1004 1.0000
+1006        12.98
+1007        12.98
+1008 0.7221
+1009         8.10
+1010         8.10
+1011         5559
+1012         5559
+1013   1.0553
+1014   0.3091
+1015 2
+1016 4
+1017 4
+1018 3
+1019 5
+1020 3
+1021    0
+1022   2.9400
+1023  0.91000
+1024  1.00000
+1025   3.6700
+1026  0.28000
+1027  0.20000
+1028  0.14530
+1029  0.00000
+1030 s
+1031 ""
