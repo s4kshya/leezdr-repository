@@ -1,0 +1,248 @@
+:Base COSTAR.hlp
+1 Introduction to Costar
+2 Overview of COCOMO Equations=cocomo_overview
+2 The Current Estimate=ew_current
+2 The Current Component=cw_current
+2 Inherited Attributes=cw_inherit
+2 COCOMO Model=ew_cocomo_model
+2 Automatic Estimation Results=ew_auto
+1 Costar Menus
+2 Costar Menus=ew_menus
+2 File Menu
+3 File | New Estimate=ew_new
+3 File | Open Estimate=ew_open
+3 File | Save Estimate=ew_save
+3 File | Save Estimate As=ew_save_as
+3 File | Copy Estimate=ew_copy
+3 File | Close Estimate=ew_close
+3 File | Select Model=ew_select_model
+3 File | Load Model=ew_load_model
+3 File | Import Costar Commands=ew_read
+3 File | Save Costar Commands As=ew_write
+3 File | Import USC Estimate=ew_usc
+3 File | Print Setup=ew_setup
+3 File | Automatic Estimation=ew_auto_est
+3 File | Exit=ew_exit
+2 View Menu
+3 View | Component List=ew_comp_list
+3 View | Component Tree View=ew_tree_view
+3 View | Estimate List=ew_est_list
+3 View | Window List=ew_wind_list
+3 View | Close Reports for Other Estimates=ew_close_others
+3 View | Close All Reports=ew_close_all
+3 View | Show Estimate Toolbar=ew_view_etoolbar
+3 View | Show Component Toolbar=ew_view_ctoolbar
+3 View | Show Report Toolbar=ew_view_rtoolbar
+3 View | Show Automatic Estimation Results=ew_view_auto
+3 View | Show Titles on Notebook=ew_view_titles
+3 View | Show Hint Bar=ew_view_hintbar
+3 View | Show Status bar=ew_view_statusbar
+2 Reports Menu
+3 Reports | Detail Report=ew_detail
+3 Reports | Cost Driver Report=ew_cost_driver
+3 Reports | Cost Report=ew_cost_report
+3 Reports | Effort Report=ew_effort_report
+3 Reports | Structure Report=ew_structure
+3 Reports | Maintenance Size Report=ew_maintenance_size
+3 Reports | Size Report=ew_size
+3 Reports | Size Summary Report=ew_size_summary
+3 Reports | Graph Milestones=ew_milestones
+3 Reports | Graph Cost vs. Time=ew_cost
+3 Reports | Graph Staffing vs. Time=ew_staffing
+3 Reports | Cost & Breakage Report=ew_cbr
+3 Reports | Effort & Breakage Report=ew_ebr
+3 Reports | Increment Detail Report=ew_incr_detail
+3 Reports | Increment Summary Report=ew_incr_summary
+3 Reports | Activity Report=ew_activity
+3 Reports | Archive Report=ew_archive
+3 Reports | Equation Report=ew_equations
+3 Reports | Estimate Comparison Report=ew_comparison
+3 Reports | Estimate Names Report=ew_names
+3 Reports | Schedule Report=ew_schedule
+2 Components
+3 Components | Create Component=ew_comp_create
+3 Components | Create Subcomponent=ew_comp_createsub
+3 Components | Delete Component=ew_comp_delete
+3 Components | Go to Parent=ew_comp_up
+3 Components | Go to Subcomponent=ew_comp_down
+3 Components | Go to Previous Component=ew_comp_prev
+3 Components | Go to Next Component=ew_comp_next
+3 Components | Assign Component to Next Higher Increment=ew_comp_higher
+3 Components | Assign Component to Next Lower Increment=ew_comp_lower
+2 Tools
+3 Tools | Constrain Project=ew_constrain
+3 Tools | Create Estimate Wizard=ew_estimate_wizard
+2 Preferences
+3 Preferences | Start with Wizard=ew_pref_wizard
+3 Preferences | Start with Empty Estimate=ew_empty
+3 Preferences | Start with Most Recently Used Estimate=ew_pref_MRU
+3 Preferences | Display Effort with Extra Precision=ew_pref_precision
+3 Preferences | Display Effort in Person-Hours=ew_pref_PH
+3 Preferences | Display Effort in Person-Months=ew_pref_PM
+3 Preferences | Display Productivity in Developed SLOC per Person-Hour=ew_pref_prod_Dev_PH
+3 Preferences | Display Productivity in Delivered SLOC per Person-Hour=ew_pref_prod_Del_PH
+3 Preferences | Display Productivity in Developed SLOC per Person-Month=ew_pref_prod_Dev_PM
+3 Preferences | Display Productivity in Delivered SLOC per Person-Month=ew_pref_prod_Del_PM
+3 Preferences | Set Default Model=ew_set_model
+3 Preferences | Reset Preferences=ew_reset_preferences
+2 Help Menu
+3 Help | Contents=ew_contents
+3 Help | Topic Search=ew_search
+3 Help | How to Use Help=ew_use_help
+3 Help | Show Hints=ew_hints
+3 Help | About=ew_about
+1 Costar Window
+2 General
+3 Costar Window=ew_window
+3 The Current Estimate=ew_current
+3 The Current Component=cw_current
+2 Estimate Toolbar
+3 New Estimate=ew_tool_new
+3 Open Estimate=ew_tool_open
+3 Save Estimate=ew_tool_save
+3 Detail Report=ew_tool_detail
+3 Graph Milestones=ew_tool_milestones
+3 Graph of Staffing vs. Time Report=ew_tool_staffing
+3 Toggle Automatic Estimation=ew_tool_auto
+3 Display Estimate List=ew_tool_estlist
+3 Estimate Name=ew_name
+3 Estimate ID=ew_id
+2 Component Toolbar
+3 Create Component=cw_comp
+3 Create Subcomponent=cw_subc
+3 Delete Component=cw_delete
+3 Select Parent Component=cw_up
+3 Select Subcomponent=cw_down
+3 Select Previous Component=cw_prev
+3 Select Next Component=cw_next
+3 Display Component List=cw_comp_list
+3 Display Component Tree=cw_comp_tree
+3 Component Name=cw_cname
+3 Component ID=cw_cid
+3 Increment=cw_incr
+2 Reports Toolbar
+3 Toolbar=tool_reports
+3 Costar Reports=ew_reports
+2 Drivers & Size Tab
+3 List of Cost Drivers=cd_list_of_cds
+3 Setting a Cost Driver=cd_setting
+3 Component Size=cw_dsi
+3 How a Component's Size is Determined=cw_from
+2 Model Tab
+3 COCOMO Equations=ew_eq
+3 Select COCOMO Model=ew_cocomo_model
+3 Scale Drivers Overview=ew_scale
+3 Precedentedness=ew_prec
+3 Development Flexibility=ew_flex
+3 Architecture / Risk Resolution=ew_resl
+3 Team Cohesion=ew_team
+3 Process Maturity=ew_pmat
+3 Development Mode=ew_mode
+3 Calculation Mode=ew_calc
+2 REVL Tab
+3 Component Requirements Volatility & Breakage=cw_brak
+2 Reuse Tab
+3 Newly Created Lines=cw_ndsi
+3 Lines Being Adapted=cw_adsi
+3 Percent Code Modified=cw_cm
+3 Percent Integration Required=cw_im
+3 Percent Design Modified=cw_dm
+3 Conversion Planning Increment=cw_cpi
+2 Function Points Tab
+3 Complexity Adjustment Factor=cw_fp_adjust
+3 Function Points=cw_fp_counts
+3 Lines per Function Point=cw_fp_dsi_per_fp
+2 Increments Tab
+3 Increment Phasing=ew_phasing
+3 Delay Before Phase=ew_delay
+3 Increment Start Point=ew_start_point
+3 Reset Phasing=ew_reset
+2 Breakage Tab
+3 Increment Breakage=ew_breakage_grid
+2 Costs Tab
+3 Requirements Cost per Person Month=cw_rqcost
+3 Detailed Design Cost per Person Month=cw_ddcost
+3 Product Design Cost per Person Month=cw_pdcost
+3 Code & Unit Test Cost per Person Month=cw_ctcost
+3 Integration & Test Cost per Person Month=cw_itcost
+3 Maintenance Cost per Person Month=cw_mncost
+3 Cost per Person Month=cw_xxcost
+2 Rates
+3 Labor Cost Grid=ew_labor_grid
+3 Revert to Model Values=ew_labor_inherit
+2 Maintenance Tab
+3 Annual Maintenance Change Factor=cw_amcf
+3 Percentage Annual Change Traffic=cw_pact
+2 Description Tab
+3 Estimate Description=ew_comment
+3 Component Description=cw_comment
+2 Hint Bar
+3 Hint Bar=ew_view_hintbar
+2 Status Bar
+3 Overview=ew_view_statusbar
+3 Component Level=cw_level
+3 EAF=ew_eaf
+3 Parent Name=cw_pname
+1 COCOMO Cost Drivers
+2 Setting a Cost Driver=cd_setting
+2 Cost Drivers for Maintenance=cd_maintenance
+2 COCOMO Cost Driver List=cd_list_of_cds
+2 ACAP -- Analyst Capability Cost Driver=cd_acap>hw
+2 APEX/AEXP -- Applications Experience Cost Driver=cd_aexp
+2 CPLX -- Product Complexity Cost Driver=cd_cplx
+2 DATA -- Database Size Cost Driver=cd_data
+2 DOCU -- Documentation Match to Life-Cycle Needs Cost Driver=cd_docu
+2 FCIL -- Facilities Cost Driver=cd_fcil
+2 LEXP -- Programming Language Experience Cost Driver=cd_lexp
+2 LTEX -- Language and Tool Experience=cd_ltex
+2 MODP -- Use of Modern Programming Practices Driver=cd_modp
+2 PCAP -- Programmer Capability Cost Driver=cd_pcap
+2 PCON -- Personnel Continuity Cost Driver=cd_pcon
+2 PDIF -- Platform Difficulty Cost Driver=cd_pdif
+2 PERS -- Personnel Capability Cost Driver=cd_pers
+2 PLAT -- Platform Cost Driver=cd_plat
+2 PLEX/PEXP -- Platform Experience Cost Driver=cd_pexp
+2 PREX -- Personnel Experience Cost Driver=cd_prex
+2 PVOL -- Platform Volatility Cost Driver=cd_pvol
+2 RCPX -- Product Reliability and Complexity=cd_rcpx
+2 RELY -- Required Software Reliability Cost Driver=cd_rely
+2 RUSE -- Required Reusability=cd_ruse
+2 RVOL -- Requirements Volatility Cost Driver=cd_rvol
+2 SCED -- Required Development Schedule Cost Driver=cd_sced
+2 SECU -- Classified Security Application=cd_secu
+2 SITE -- Multisite Development Cost Driver=cd_site
+2 STOR -- Main Storage Constraint Cost Driver=cd_stor
+2 TIME -- Execution Time Constraint Cost Driver=cd_time
+2 TOOL -- Use of Software Tools Cost Driver=cd_tool
+2 TURN -- Computer Turnaround Time Cost Driver=cd_turn
+2 USRn -- User Defined Cost Driver=cd_usrn
+2 VEXP -- Virtual Machine Experience Cost Driver=cd_vexp
+2 VIRT -- Virtual Machine Volatility Cost Driver=cd_virt
+2 VMVH -- Virtual Machine Volatility: Host=cd_vmvh
+2 VMVT -- Virtual Machine Volatility: Target=cd_vmvt
+2 USC Copyright Notice=usc_copyright
+1 REVIC & MBASE
+2 REVIC Model=ew_revic
+2 MBASE, Waterfall, and REVIC Phases=ew_phases
+1 What's New in Costar 7.0?
+2 Create Estimate Wizard=form_wizard
+2 Import of USC Estimates=ew_usc
+2 Effort Filters=ew_filter
+2 Drag & Drop=ew_dragdrop
+2 Estimate Toolbar=tool_est
+2 Component Toolbar=tool_comp
+2 Reports Toolbar=tool_reports
+2 Hint Bar=ew_view_hintbar
+2 Status Bar=ew_view_statusbar
+2 Effort in Person-Hours or Person-Months=ew_pref_PH
+2 Extra Precision for Effort=ew_pref_precision
+2 Print Setup=ew_setup
+2 New File Format=ew_binary
+2 EAF Easier to Find=ew_eaf
+2 Better Reporting of Productivity=ew_productivity
+2 Delivered & Developed SLOC=ew_delivered
+2 Cost Driver Report=ew_cost_driver
+2 Cost Report=ew_cost_report
+2 Effort Report=ew_effort_report
+2 Size Summary Report=ew_size_summary
+2 Equations Report=ew_equations

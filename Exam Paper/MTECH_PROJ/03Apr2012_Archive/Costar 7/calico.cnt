@@ -1,0 +1,58 @@
+:Base CALICO.hlp
+1 Introduction to Calico
+2 A Typical Calico Session=A_Typical_Calico_Session
+2 Calico History=Calico_History
+2 Costar Models=Costar_Models
+2 Import Costar Estimate=Import_Costar_Estimate
+1 Model Customization
+2 Model Name=Model_Name
+2 Model ID=Model_ID
+2 Equations
+3 Equation Parameters=Equation_Parameters
+3 Scale Factors=Scale_Factors
+3 Hours per Person-Month=Hours_per_Person_Month
+2 Cost Drivers
+3 Add/Remove Cost Driver=Add_Remove_Cost_Driver
+3 Effort Multipliers=Effort_Multipliers
+3 Default Cost Driver Settings=Default_Cost_Driver_Settings
+3 MODP=MODP
+3 SCED Acceleration=SCED_Acceleration
+2 Distributions
+3 Effort Distribution=Effort_Distribution
+3 Schedule Distribution=Schedule_Distribution
+3 Activity Distribution=Activity_Distribution
+3 Labor Distribution=Labor_Distribution
+2 Function Points
+3 SLOC per Function Point=SLOC_per_Function_Point
+3 Function Point Complexity=Complexity
+3 Function Point Weight=Function_Point_Weight
+2 Other Customizations
+3 Adaptation=Adaptation
+3 Maintenance=Maintenance
+3 Labor Classes=Labor_Class
+3 Default Cost=Default_Cost
+3 Sizes=Sizes
+3 Activities=Activities
+3 Phases=Phases
+3 Milestone Hints=Milestone_Hints
+3 Miscellaneous=Miscellaneous
+1 Edit History Window
+2 Edit History Window=Edit_History_Window
+2 History Name=History_Name
+2 History ID=History_ID
+2 Tag History=Tag_History
+2 Actual Mode & Scale Factors=Actual_Mode_Scale_Factors
+2 Description=Description
+2 Actual Size, Effort, Duration
+3 Actual Effort=Actual_Effort
+3 Actual Duration=Actual_Duration
+3 Actual Size=Actual_Size
+3 COCOMO Effort Multipliers=COCOMO_Effort_Multipliers
+3 SCED Effort Multiplier=SCED_Effort_Multiplier
+3 SCED Stretchout or Acceleration=SCED_Stretchout_or_Acceleration
+3 Actual Hours per Person-Month=Actual_Hours_per_Person_Month
+1 Calibration
+2 How to Calibrate=How_to_Calibrate
+2 Equation Calibration=Equation_Calibration
+2 Calibration Results=Calibration_Results
+2 Calico Calibration Report=Calico_Calibration_Report
