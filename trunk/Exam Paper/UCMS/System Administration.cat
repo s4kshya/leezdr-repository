@@ -1,0 +1,330 @@
+
+(object Petal
+    version    	46
+    _written   	"Rose 7.7.0204.3001"
+    charSet    	0)
+
+(object Class_Category "System Administration"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"4F98BAC700C6"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object UseCase "Manage Deals"
+	    quid       	"4F98BF75038C")
+	(object UseCase "Manage Merchants"
+	    quid       	"4F98BF7E0065")
+	(object UseCase "Manage Vouchers"
+	    quid       	"4F98BF8D0301")
+	(object UseCase "Manage Redemptions"
+	    quid       	"4F98E38300F7")
+	(object Association "$UNNAMED$0"
+	    quid       	"4F98C608028E"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    quid       	"4F98C60900F1"
+		    supplier   	"Use Case View::Use-Case Model::Use Cases::System Administration::Manage Deals"
+		    quidu      	"4F98BF75038C"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"4F98C60900F3"
+		    supplier   	"Use Case View::Use-Case Model::Actors::System Administrator"
+		    quidu      	"4F98BE9800D5")))
+	(object Association "$UNNAMED$3"
+	    quid       	"4F98C60A01FB"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$4"
+		    quid       	"4F98C60A039C"
+		    supplier   	"Use Case View::Use-Case Model::Use Cases::System Administration::Manage Merchants"
+		    quidu      	"4F98BF7E0065"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$5"
+		    quid       	"4F98C60A039E"
+		    supplier   	"Use Case View::Use-Case Model::Actors::System Administrator"
+		    quidu      	"4F98BE9800D5")))
+	(object Association "$UNNAMED$6"
+	    quid       	"4F98C60C00AF"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$7"
+		    quid       	"4F98C60C0356"
+		    supplier   	"Use Case View::Use-Case Model::Use Cases::System Administration::Manage Vouchers"
+		    quidu      	"4F98BF8D0301"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$8"
+		    quid       	"4F98C60C0358"
+		    supplier   	"Use Case View::Use-Case Model::Actors::System Administrator"
+		    quidu      	"4F98BE9800D5")))
+	(object Association "$UNNAMED$9"
+	    quid       	"4F9A3FF0006E"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$10"
+		    quid       	"4F9A3FF0034C"
+		    supplier   	"Use Case View::Use-Case Model::Use Cases::System Administration::Manage Redemptions"
+		    quidu      	"4F98E38300F7"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$11"
+		    quid       	"4F9A3FF0034E"
+		    supplier   	"Use Case View::Use-Case Model::Actors::System Administrator"
+		    quidu      	"4F98BE9800D5"))))
+    logical_presentations 	(list unit_reference_list
+	(object UseCaseDiagram "System Administration"
+	    quid       	"4F98C4620040"
+	    title      	"System Administration"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Deals" @1
+		    location   	(1056, 400)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1056, 538)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Manage Deals")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4F98BF75038C")
+		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Merchants" @2
+		    location   	(1072, 656)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1072, 794)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Manage Merchants")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4F98BF7E0065")
+		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Vouchers" @3
+		    location   	(1056, 1232)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1056, 1370)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Manage Vouchers")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4F98BF8D0301")
+		(object ClassView "Class" "Use Case View::Use-Case Model::Actors::System Administrator" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(336, 848)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(336, 1008)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	325
+			justify    	0
+			label      	"System Administrator")
+		    icon       	"Actor"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    quidu      	"4F98BE9800D5"
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @5
+		    location   	(659, 644)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4F98C608028E"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @6
+			    Parent_View 	@5
+			    location   	(291, -12)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F98C60900F1"
+			    client     	@5
+			    supplier   	@1
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @7
+			    Parent_View 	@5
+			    location   	(291, -12)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F98C60900F3"
+			    client     	@5
+			    supplier   	@4
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$3" @8
+		    location   	(676, 755)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4F98C60A01FB"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$4" @9
+			    Parent_View 	@8
+			    location   	(308, 99)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F98C60A039C"
+			    client     	@8
+			    supplier   	@2
+			    line_style 	0)
+			(object RoleView "$UNNAMED$5" @10
+			    Parent_View 	@8
+			    location   	(308, 99)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F98C60A039E"
+			    client     	@8
+			    supplier   	@4
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$6" @11
+		    location   	(672, 1025)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4F98C60C00AF"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$7" @12
+			    Parent_View 	@11
+			    location   	(304, 369)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F98C60C0356"
+			    client     	@11
+			    supplier   	@3
+			    line_style 	0)
+			(object RoleView "$UNNAMED$8" @13
+			    Parent_View 	@11
+			    location   	(304, 369)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F98C60C0358"
+			    client     	@11
+			    supplier   	@4
+			    line_style 	0)))
+		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Redemptions" @14
+		    location   	(1056, 912)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(1056, 1050)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Manage Redemptions")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4F98E38300F7")
+		(object AssociationViewNew "$UNNAMED$9" @15
+		    location   	(669, 874)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4F9A3FF0006E"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$10" @16
+			    Parent_View 	@15
+			    location   	(413, 218)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F9A3FF0034C"
+			    client     	@15
+			    supplier   	@14
+			    line_style 	0)
+			(object RoleView "$UNNAMED$11" @17
+			    Parent_View 	@15
+			    location   	(413, 218)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F9A3FF0034E"
+			    client     	@15
+			    supplier   	@4
+			    line_style 	0)))))))
