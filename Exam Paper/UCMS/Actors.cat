@@ -1,0 +1,33 @@
+
+(object Petal
+    version    	46
+    _written   	"Rose 7.7.0204.3001"
+    charSet    	0)
+
+(object Class_Category "Actors"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3518CBC9026C"
+    documentation 	
+|All Actors in the system are contained in this package.   This is both as a way to organize the model, making it easier to understand, and to provide a way to manage the actors in a single configuration item. 
+|
+|If different individuals are responsible for different actors and their related artifacts, the actors should be organized into their own packages and placed under separate configuration control.
+    
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Registered Member"
+	    quid       	"4F8A3BD2034B"
+	    stereotype 	"Actor")
+	(object Class "SMS/Email Server"
+	    quid       	"4F8A50D203A9"
+	    stereotype 	"Actor")
+	(object Class "MasterCard Centralized  System"
+	    quid       	"4F8A540C038A"
+	    stereotype 	"Actor")
+	(object Class "System Administrator"
+	    quid       	"4F98BE9800D5"
+	    stereotype 	"Actor")
+	(object Class "Non-Registered Member"
+	    quid       	"4F98BEA9035F"
+	    stereotype 	"Actor"))
+    logical_presentations 	(list unit_reference_list))
