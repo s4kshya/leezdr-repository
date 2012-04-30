@@ -18,6 +18,8 @@
 	    quid       	"4F98BF8D0301")
 	(object UseCase "Manage Redemptions"
 	    quid       	"4F98E38300F7")
+	(object UseCase "Manage Members"
+	    quid       	"4F9E232D00E9")
 	(object Association "$UNNAMED$0"
 	    quid       	"4F98C608028E"
 	    roles      	(list role_list
@@ -65,6 +67,18 @@
 		(object Role "$UNNAMED$11"
 		    quid       	"4F9A3FF0034E"
 		    supplier   	"Use Case View::Use-Case Model::Actors::System Administrator"
+		    quidu      	"4F98BE9800D5")))
+	(object Association "$UNNAMED$12"
+	    quid       	"4F9E233E00D1"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$13"
+		    quid       	"4F9E233E03BF"
+		    supplier   	"Use Case View::Use-Case Model::Use Cases::System Administration::Manage Members"
+		    quidu      	"4F9E232D00E9"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$14"
+		    quid       	"4F9E233E03C1"
+		    supplier   	"Use Case View::Use-Case Model::Actors::System Administrator"
 		    quidu      	"4F98BE9800D5"))))
     logical_presentations 	(list unit_reference_list
 	(object UseCaseDiagram "System Administration"
@@ -77,7 +91,7 @@
 	    origin_y   	0
 	    items      	(list diagram_item_list
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Deals" @1
-		    location   	(1056, 400)
+		    location   	(1088, 400)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -89,7 +103,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(1056, 538)
+			location   	(1088, 538)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	630
@@ -100,7 +114,7 @@
 		    fill_color 	13434879
 		    quidu      	"4F98BF75038C")
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Merchants" @2
-		    location   	(1072, 656)
+		    location   	(1088, 640)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -112,7 +126,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(1072, 794)
+			location   	(1088, 778)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	630
@@ -123,7 +137,7 @@
 		    fill_color 	13434879
 		    quidu      	"4F98BF7E0065")
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Vouchers" @3
-		    location   	(1056, 1232)
+		    location   	(1088, 1088)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -135,7 +149,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@3
-			location   	(1056, 1370)
+			location   	(1088, 1226)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	630
@@ -145,7 +159,30 @@
 		    line_color 	3342489
 		    fill_color 	13434879
 		    quidu      	"4F98BF8D0301")
-		(object ClassView "Class" "Use Case View::Use-Case Model::Actors::System Administrator" @4
+		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Redemptions" @4
+		    location   	(1088, 848)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1088, 986)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Manage Redemptions")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4F98E38300F7")
+		(object ClassView "Class" "Use Case View::Use-Case Model::Actors::System Administrator" @5
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -160,7 +197,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@4
+			Parent_View 	@5
 			location   	(336, 1008)
 			anchor_loc 	1
 			nlines     	2
@@ -173,8 +210,8 @@
 		    quidu      	"4F98BE9800D5"
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object AssociationViewNew "$UNNAMED$0" @5
-		    location   	(659, 644)
+		(object AssociationViewNew "$UNNAMED$0" @6
+		    location   	(675, 643)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -188,26 +225,26 @@
 		    line_color 	3342489
 		    quidu      	"4F98C608028E"
 		    roleview_list 	(list RoleViews
-			(object RoleView "$UNNAMED$1" @6
-			    Parent_View 	@5
-			    location   	(291, -12)
+			(object RoleView "$UNNAMED$1" @7
+			    Parent_View 	@6
+			    location   	(307, -13)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F98C60900F1"
-			    client     	@5
+			    client     	@6
 			    supplier   	@1
 			    line_style 	0)
-			(object RoleView "$UNNAMED$2" @7
-			    Parent_View 	@5
-			    location   	(291, -12)
+			(object RoleView "$UNNAMED$2" @8
+			    Parent_View 	@6
+			    location   	(307, -13)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F98C60900F3"
-			    client     	@5
-			    supplier   	@4
+			    client     	@6
+			    supplier   	@5
 			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$3" @8
-		    location   	(676, 755)
+		(object AssociationViewNew "$UNNAMED$3" @9
+		    location   	(685, 747)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -221,26 +258,26 @@
 		    line_color 	3342489
 		    quidu      	"4F98C60A01FB"
 		    roleview_list 	(list RoleViews
-			(object RoleView "$UNNAMED$4" @9
-			    Parent_View 	@8
-			    location   	(308, 99)
+			(object RoleView "$UNNAMED$4" @10
+			    Parent_View 	@9
+			    location   	(317, 91)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F98C60A039C"
-			    client     	@8
+			    client     	@9
 			    supplier   	@2
 			    line_style 	0)
-			(object RoleView "$UNNAMED$5" @10
-			    Parent_View 	@8
-			    location   	(308, 99)
+			(object RoleView "$UNNAMED$5" @11
+			    Parent_View 	@9
+			    location   	(317, 91)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F98C60A039E"
-			    client     	@8
-			    supplier   	@4
+			    client     	@9
+			    supplier   	@5
 			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$6" @11
-		    location   	(672, 1025)
+		(object AssociationViewNew "$UNNAMED$6" @12
+		    location   	(685, 957)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -254,49 +291,26 @@
 		    line_color 	3342489
 		    quidu      	"4F98C60C00AF"
 		    roleview_list 	(list RoleViews
-			(object RoleView "$UNNAMED$7" @12
-			    Parent_View 	@11
-			    location   	(304, 369)
+			(object RoleView "$UNNAMED$7" @13
+			    Parent_View 	@12
+			    location   	(317, 301)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F98C60C0356"
-			    client     	@11
+			    client     	@12
 			    supplier   	@3
 			    line_style 	0)
-			(object RoleView "$UNNAMED$8" @13
-			    Parent_View 	@11
-			    location   	(304, 369)
+			(object RoleView "$UNNAMED$8" @14
+			    Parent_View 	@12
+			    location   	(317, 301)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F98C60C0358"
-			    client     	@11
-			    supplier   	@4
+			    client     	@12
+			    supplier   	@5
 			    line_style 	0)))
-		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Redemptions" @14
-		    location   	(1056, 912)
-		    font       	(object Font
-			size       	9
-			face       	"Arial"
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    label      	(object ItemLabel
-			Parent_View 	@14
-			location   	(1056, 1050)
-			anchor_loc 	1
-			nlines     	2
-			max_width  	630
-			justify    	0
-			label      	"Manage Redemptions")
-		    icon_style 	"Icon"
-		    line_color 	3342489
-		    fill_color 	13434879
-		    quidu      	"4F98E38300F7")
 		(object AssociationViewNew "$UNNAMED$9" @15
-		    location   	(669, 874)
+		    location   	(685, 848)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -312,19 +326,75 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "$UNNAMED$10" @16
 			    Parent_View 	@15
-			    location   	(413, 218)
+			    location   	(429, 192)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F9A3FF0034C"
 			    client     	@15
-			    supplier   	@14
+			    supplier   	@4
 			    line_style 	0)
 			(object RoleView "$UNNAMED$11" @17
 			    Parent_View 	@15
-			    location   	(413, 218)
+			    location   	(429, 192)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F9A3FF0034E"
 			    client     	@15
-			    supplier   	@4
+			    supplier   	@5
+			    line_style 	0)))
+		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::System Administration::Manage Members" @18
+		    location   	(1088, 1328)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(1088, 1466)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	630
+			justify    	0
+			label      	"Manage Members")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"4F9E232D00E9")
+		(object AssociationViewNew "$UNNAMED$12" @19
+		    location   	(695, 1077)
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4F9E233E00D1"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$13" @20
+			    Parent_View 	@19
+			    location   	(359, 229)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F9E233E03BF"
+			    client     	@19
+			    supplier   	@18
+			    line_style 	0)
+			(object RoleView "$UNNAMED$14" @21
+			    Parent_View 	@19
+			    location   	(359, 229)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4F9E233E03C1"
+			    client     	@19
+			    supplier   	@5
 			    line_style 	0)))))))

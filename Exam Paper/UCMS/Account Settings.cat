@@ -250,7 +250,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@7
-			location   	(1393, 798)
+			location   	(1307, 759)
 			anchor_loc 	1
 			nlines     	1
 			max_width  	136
@@ -258,7 +258,7 @@
 			label      	"")
 		    stereotype 	(object SegLabel @8
 			Parent_View 	@7
-			location   	(1338, 720)
+			location   	(1358, 690)
 			font       	(object Font
 			    size       	9
 			    face       	"Arial"
