@@ -12,7 +12,13 @@
     exportControl 	"Public"
     logical_models 	(list unit_reference_list
 	(object UseCase "Search Credit Card Transactions"
-	    quid       	"4F8A3BFE000F")
+	    quid       	"4F8A3BFE000F"
+	    visible_modules 	(list dependency_list
+		(object Dependency_Relationship
+		    quid       	"4F9E242D028C"
+		    stereotype 	"extend"
+		    supplier   	"Use Case View::Use-Case Model::Use Cases::Member::Expense Tracker::View Credit Card Transaction"
+		    quidu      	"4F8A3C3501A5")))
 	(object UseCase "View Credit Card Transaction"
 	    quid       	"4F8A3C3501A5"
 	    visible_modules 	(list dependency_list
@@ -52,7 +58,7 @@
 	    origin_y   	63
 	    items      	(list diagram_item_list
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::Member::Expense Tracker::Tag Transaction Type" @1
-		    location   	(1568, 656)
+		    location   	(1536, 640)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -64,7 +70,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(1568, 794)
+			location   	(1536, 778)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	630
@@ -75,7 +81,7 @@
 		    fill_color 	13434879
 		    quidu      	"4F8A3DCE004E")
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::Member::Expense Tracker::Add Transaction Details" @2
-		    location   	(1616, 224)
+		    location   	(1504, 304)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -87,7 +93,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(1616, 362)
+			location   	(1504, 442)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	698
@@ -98,7 +104,7 @@
 		    fill_color 	13434879
 		    quidu      	"4F8A4030005D")
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::Member::Expense Tracker::Search Credit Card Transactions" @3
-		    location   	(816, 208)
+		    location   	(832, 80)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -110,7 +116,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@3
-			location   	(816, 346)
+			location   	(832, 218)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	842
@@ -121,7 +127,7 @@
 		    fill_color 	13434879
 		    quidu      	"4F8A3BFE000F")
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::Member::Expense Tracker::View Spending Pattern" @4
-		    location   	(800, 768)
+		    location   	(864, 768)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -133,7 +139,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@4
-			location   	(800, 906)
+			location   	(864, 906)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	746
@@ -144,7 +150,7 @@
 		    fill_color 	13434879
 		    quidu      	"4F8A3C4A03C8")
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::Member::Expense Tracker::Export Transaction Data" @5
-		    location   	(800, 1056)
+		    location   	(832, 1072)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -156,7 +162,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@5
-			location   	(800, 1194)
+			location   	(832, 1210)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	638
@@ -167,7 +173,7 @@
 		    fill_color 	13434879
 		    quidu      	"4F8A3D5E007D")
 		(object UseCaseView "Use Case View::Use-Case Model::Use Cases::Member::Expense Tracker::View Credit Card Transaction" @6
-		    location   	(832, 448)
+		    location   	(832, 512)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -179,7 +185,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@6
-			location   	(832, 586)
+			location   	(832, 650)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	806
@@ -201,7 +207,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @8
 			Parent_View 	@7
-			location   	(1294, 544)
+			location   	(1165, 679)
 			font       	(object Font
 			    size       	9
 			    face       	"Arial"
@@ -217,9 +223,9 @@
 			max_width  	450
 			justify    	0
 			label      	"<<extend>>"
-			pctDist    	0.462496
-			height     	31
-			orientation 	1)
+			pctDist    	0.500000
+			height     	108
+			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4F8A44390261"
 		    client     	@1
@@ -237,7 +243,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @10
 			Parent_View 	@9
-			location   	(1256, 341)
+			location   	(1199, 509)
 			font       	(object Font
 			    size       	9
 			    face       	"Arial"
@@ -253,8 +259,8 @@
 			max_width  	450
 			justify    	0
 			label      	"<<extend>>"
-			pctDist    	0.331623
-			height     	17
+			pctDist    	0.500000
+			height     	108
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4F8A444703C8"
@@ -266,7 +272,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(192, 672)
+		    location   	(144, 576)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -278,7 +284,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@11
-			location   	(192, 832)
+			location   	(144, 736)
 			anchor_loc 	1
 			nlines     	2
 			max_width  	325
@@ -291,7 +297,7 @@
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "" @12
-		    location   	(423, 496)
+		    location   	(404, 385)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -307,7 +313,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "" @13
 			    Parent_View 	@12
-			    location   	(103, 144)
+			    location   	(84, 33)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F8A4212003E"
@@ -316,7 +322,7 @@
 			    line_style 	0)
 			(object RoleView "" @14
 			    Parent_View 	@12
-			    location   	(103, 144)
+			    location   	(84, 33)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F8A42120040"
@@ -324,7 +330,7 @@
 			    supplier   	@11
 			    line_style 	0)))
 		(object AssociationViewNew "" @15
-		    location   	(469, 712)
+		    location   	(477, 662)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -340,7 +346,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "" @16
 			    Parent_View 	@15
-			    location   	(149, 360)
+			    location   	(157, 310)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F8A427801B5"
@@ -349,7 +355,7 @@
 			    line_style 	0)
 			(object RoleView "" @17
 			    Parent_View 	@15
-			    location   	(149, 360)
+			    location   	(157, 310)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F8A427801B7"
@@ -357,7 +363,7 @@
 			    supplier   	@11
 			    line_style 	0)))
 		(object AssociationViewNew "" @18
-		    location   	(480, 852)
+		    location   	(475, 814)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -373,7 +379,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "" @19
 			    Parent_View 	@18
-			    location   	(160, 500)
+			    location   	(155, 462)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F8A429803B9"
@@ -382,7 +388,7 @@
 			    line_style 	0)
 			(object RoleView "" @20
 			    Parent_View 	@18
-			    location   	(160, 500)
+			    location   	(155, 462)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F8A429803BB"
@@ -390,7 +396,7 @@
 			    supplier   	@11
 			    line_style 	0)))
 		(object AssociationViewNew "" @21
-		    location   	(412, 592)
+		    location   	(460, 543)
 		    font       	(object Font
 			size       	9
 			face       	"Arial"
@@ -406,7 +412,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "" @22
 			    Parent_View 	@21
-			    location   	(92, 240)
+			    location   	(140, 191)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F8A46F9032C"
@@ -415,10 +421,46 @@
 			    line_style 	0)
 			(object RoleView "" @23
 			    Parent_View 	@21
-			    location   	(92, 240)
+			    location   	(140, 191)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F8A46F9032E"
 			    client     	@21
 			    supplier   	@11
-			    line_style 	0)))))))
+			    line_style 	0)))
+		(object DependencyView "" @24
+		    font       	(object Font
+			size       	9
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @25
+			Parent_View 	@24
+			location   	(940, 347)
+			font       	(object Font
+			    size       	9
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<extend>>"
+			pctDist    	0.500000
+			height     	108
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4F9E242D028C"
+		    client     	@3
+		    supplier   	@6
+		    line_style 	0)))))
