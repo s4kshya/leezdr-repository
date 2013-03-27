@@ -1,4 +1,8 @@
 ﻿Imports System.Data
+Imports Telerik.Web
+Imports Telerik.Charting
+Imports Telerik
+
 Partial Class Q1
     Inherits System.Web.UI.Page
 
