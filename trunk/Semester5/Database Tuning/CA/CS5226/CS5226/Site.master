@@ -8,6 +8,16 @@
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            color: #000000;
+            padding: 8px 0px 0px 0px;
+            margin: 0px auto;
+            text-align: center;
+            line-height: normal;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -23,6 +33,8 @@
                         <asp:MenuItem NavigateUrl="~/Q1.aspx" Text="Question 1"/>
                         <asp:MenuItem NavigateUrl="~/Q2.aspx" Text="Question 2"/>
                         <asp:MenuItem NavigateUrl="~/Q3.aspx" Text="Question 3"/>
+                        <asp:MenuItem NavigateUrl="~/Q4.aspx" Text="Question 4"/>
+                        <asp:MenuItem NavigateUrl="~/Q5.aspx" Text="Question 5"/>
                     </Items>
                 </asp:Menu>
             </div>
@@ -33,8 +45,8 @@
         <div class="clear">
         </div>
     </div>
-    <div class="footer">
-        CS5226 NUS - Team 3 
+    <div class="style1">
+        <strong>CS5226 NUS - Team XXX </strong>
     </div>
     </form>
 </body>
