@@ -1,0 +1,13 @@
+1. true
+2. false
+3. false
+4. a  From Q1, we have CK+ = BCKYZ. Since the distinct clause in Q1 is redundant, this implies that (1) key of R is B or C, (2) key of S is K, and (3) key of T is Y or Z.
+5. f
+6a. false
+6b. true
+6c. true
+6d. true
+6e. true
+6f. false
+7.  (B,D,C|A,E) or (D,B,C|A,E)
+8. {C,D}
