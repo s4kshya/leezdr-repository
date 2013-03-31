@@ -7,6 +7,16 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <script type='text/javascript' src='https://www.google.com/jsapi'></script>
 
+    <script type='text/javascript'>
+        function openSQL(sql) {
+
+            myWindow = window.open('', '', 'width=600,height=300;scrollbars=no;status=no;location=no;menubar=no;resizable=yes;toolbar=no')
+           myWindow.document.write(sql)
+           myWindow.focus()
+
+        }
+    
+    </script>
 
     <script type='text/javascript'>
         google.load('visualization', '1', { packages: ['gauge'] });
@@ -26,6 +36,8 @@
 
             var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
             chart.draw(data, options);
+
+            
         }
     </script>
 
@@ -52,14 +64,16 @@
 
 
 
-
+  <table>
+  <tr><td></td></tr>
+  </table>
 
 
 
 
 
     <asp:GridView  ID="gvParam" runat="server" AutoGenerateColumns="False"  CellPadding="4" ForeColor="#333333" 
-    GridLines="None" Width="100%">
+    GridLines="None" Width="100%" OnRowDataBound="RowBound">
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
       
@@ -70,9 +84,10 @@
         <Columns>
 
             <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="ParametersName" HeaderText="Parameter Name" />
-            <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="OptimalValue" HeaderText="Optimal Value" />
             <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="CurrentValue" HeaderText="Current Value" />
-            <asp:ButtonField Text="View Details" />
+            <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="Indicator" HeaderText="Indicator" />
+            <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Sql" HeaderText="" />
+
         </Columns>
 
       
