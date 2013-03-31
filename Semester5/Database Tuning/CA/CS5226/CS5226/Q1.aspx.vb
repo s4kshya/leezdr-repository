@@ -18,4 +18,19 @@ Partial Class Q1
         gvParam.DataBind()
 
     End Sub
+
+    Public Sub RowBound(ByVal sender As Object, ByVal e As GridViewRowEventArgs)
+
+        If e.Row.RowType = DataControlRowType.DataRow Then
+
+            ' Display the company name in italics.
+            e.Row.Cells(2).Text = "<div style=""background-color:" + e.Row.Cells(2).Text + """ >&nbsp;</div>"
+
+
+            e.Row.Cells(3).Text = "<a href=""javascript:openSQL('" + Context.Server.HtmlEncode(e.Row.Cells(3).Text) + "');"">View Sql</div>"
+        End If
+
+    End Sub
 End Class
+
+
