@@ -6,6 +6,7 @@ Partial Class Q5
         Dim err As String = String.Empty
         Dim dTbl As DataTable
         Dim sql As String = tbSql.Text.Trim
+        lblError.Text = ""
         dTbl = DAO.ExecuteDataTable(sql, err)
         If err.Length > 0 Then
             lblError.Text = err

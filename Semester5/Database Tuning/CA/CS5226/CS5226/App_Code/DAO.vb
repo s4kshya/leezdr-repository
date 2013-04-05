@@ -1,11 +1,26 @@
 ﻿Imports Microsoft.VisualBasic
 Imports System.Data.OracleClient
 Imports System.Data
+Imports System.Drawing.Color
 
 Public Class DAO
 
-    Public Shared ConnString As String = "Data Source=orcl;User Id=APP_USER;Password=d;DBA Privilege=SYSDBA"
+    Public Shared ConnString As String = "Data Source=orcl;User Id=APP_USER;Password=d"
+    ' Public Shared ConnString As String = "Data Source=DRC.WORLD;User Id=ITAPPLN_UAT;Password=alltel;"
+
     Public Shared Avg As Double
+
+    Public Shared Function ExecuteNonQuery(ByVal pScript As String) As Integer
+
+        Dim sqlConn As OracleConnection = New OracleConnection(ConnString)
+
+        Using connection As New OracleConnection(ConnString)
+            Dim command As New OracleCommand(pScript, connection)
+            command.Connection.Open()
+            Return command.ExecuteNonQuery()
+        End Using
+
+    End Function
 
     Public Shared Function ExecuteDataSet(ByVal pScript As String) As DataSet
 
@@ -153,7 +168,7 @@ Public Class DAO
                 color = "Red"
             End If
             dRow(0) = "Redo Log Buffer/Files"
-            dRow(1) = val.ToString + "%"
+            dRow(1) = val.ToString
             dRow(2) = color
             dRow(3) = sql
             d.Rows.Add(dRow)
@@ -192,6 +207,7 @@ Public Class DAO
         d.Columns.Add("CurrentValue")
         d.Columns.Add("Indicator")
         d.Columns.Add("Sql")
+
 
         AddSharedPoolData(d)
         AddCacheHitRatio(d)
