@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" enableviewstate="true">
     <div class="page">
         <div class="header">
             <div class="title">

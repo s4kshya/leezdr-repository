@@ -10,7 +10,13 @@ Partial Class Q1
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        LoadGrid()
+
+        If Not Page.IsPostBack Then
+            LoadGrid()
+        End If
+
+        DAO.ExecuteNonQuery("execute dbms_workload_repository.create_snapshot('ALL')")
+
     End Sub
 
     Public Sub LoadGrid()
