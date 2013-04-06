@@ -16,7 +16,10 @@
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-
+  <h2 class="style4">
+        Question 2 - Database Parameters Threshold Configuration
+    </h2>
+    <p/>
 <table border="1px" cellpadding="0px" cellspacing="0px" border="1px" style="height:280px; width: 900px">
     <tr>
         <td style="width:40%;"><strong>Database Parameters</strong></td>
@@ -29,42 +32,51 @@
 
     <tr>
         <td class="style3">Shared Pool (%)</td>
-        <td class="style2"><strong><asp:TextBox ID="SP_GREEN_S" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True"></asp:TextBox>
-            &nbsp;to <asp:TextBox ID="SP_GREEN_E" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True"></asp:TextBox>
+        <td class="style2"><strong>
+            <asp:TextBox ID="SP_GREEN_S" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="SP_GREEN_E" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
             &nbsp;</strong></td>
         <td class="style2"><strong>
             <asp:TextBox ID="SP_YELLOW_S" runat="server" 
-                Width="70px" BackColor="#CCFFFF" MaxLength="2">86</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="SP_YELLOW_E" runat="server" Width="70px" 
-                BackColor="#CCFFFF" MaxLength="2">94</asp:TextBox>
+                Width="70px" BackColor="White" MaxLength="2">86</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="SP_YELLOW_E" runat="server" Width="70px" 
+                BackColor="White" MaxLength="2">94</asp:TextBox>
             &nbsp;</strong></td>
-        <td class="style2"><strong><asp:TextBox ID="SP_RED_S" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">95</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="SP_RED_E" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">100</asp:TextBox>
+        <td class="style2"><strong>
+            <asp:TextBox ID="SP_RED_S" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">95</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="SP_RED_E" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">100</asp:TextBox>
             &nbsp;</strong></td>
     </tr>
 
     <tr>
-        <td class="style3">Redo Log Buffer/Files</td>
-        <td class="style2"><strong><asp:TextBox ID="RB_GREEN_S" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True"></asp:TextBox>
-            &nbsp;to <asp:TextBox ID="RB_GREEN_E" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">0.5</asp:TextBox>
+        <td class="style3">Redo Log Buffer (%)</td>
+        <td class="style2"><strong>
+            <asp:TextBox ID="RB_GREEN_S" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="RB_GREEN_E" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">0.5</asp:TextBox>
             &nbsp;</strong></td>
         <td class="style2"><strong>
             <asp:TextBox ID="RB_YELLOW_S" runat="server" 
-                Width="70px" BackColor="#CCFFFF" MaxLength="2">0.6</asp:TextBox>
+                Width="70px" BackColor="White" MaxLength="5">0.6</asp:TextBox>
             &nbsp;to 
             <asp:TextBox ID="RB_YELLOW_E" runat="server" Width="70px" 
-                BackColor="#CCFFFF" MaxLength="4">0.75</asp:TextBox>
+                BackColor="White" MaxLength="5">0.75</asp:TextBox>
             &nbsp;</strong></td>
-        <td class="style2"><strong><asp:TextBox ID="RB_RED_S" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">0.75</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="RB_RED_E" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">1</asp:TextBox>
+        <td class="style2"><strong>
+            <asp:TextBox ID="RB_RED_S" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">0.75</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="RB_RED_E" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">1</asp:TextBox>
             &nbsp;</strong></td>
     </tr>
 
@@ -79,42 +91,51 @@
 
     <tr>
         <td class="style3">Buffer Cache (%)</td>
-        <td class="style2"><strong><asp:TextBox ID="BC_RED_S" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">1</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="BC_RED_E" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">69</asp:TextBox>
+        <td class="style2"><strong>
+            <asp:TextBox ID="BC_RED_S" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">1</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="BC_RED_E" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">69</asp:TextBox>
             &nbsp;</strong></td>
         <td class="style2"><strong>
             <asp:TextBox ID="BC_YELLOW_S" runat="server" 
-                Width="70px" BackColor="#CCFFFF" MaxLength="2">70</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="BC_YELLOW_E" runat="server" Width="70px" 
-                BackColor="#CCFFFF" MaxLength="2">89</asp:TextBox>
+                Width="70px" BackColor="White" MaxLength="2">70</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="BC_YELLOW_E" runat="server" Width="70px" 
+                BackColor="White" MaxLength="2">89</asp:TextBox>
             &nbsp;</strong></td>
-        <td class="style2"><strong><asp:TextBox ID="BC_GREEN_S" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">90</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="BC_GREEN_E" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">100</asp:TextBox>
+        <td class="style2"><strong>
+            <asp:TextBox ID="BC_GREEN_S" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">90</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="BC_GREEN_E" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">100</asp:TextBox>
             &nbsp;</strong></td>
     </tr>
 
     <tr>
-        <td class="style3">Memory area used for Sorting</td>
-        <td class="style2"><strong><asp:TextBox ID="SORT_RED_S" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">1</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="SORT_RED_E" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">69</asp:TextBox>
+        <td class="style3">Memory area used for Sorting (%)</td>
+        <td class="style2"><strong>
+            <asp:TextBox ID="SORT_RED_S" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">1</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="SORT_RED_E" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">69</asp:TextBox>
             &nbsp;</strong></td>
         <td class="style2"><strong>
             <asp:TextBox ID="SORT_YELLOW_S" runat="server" 
-                Width="70px" BackColor="#CCFFFF" MaxLength="2">70</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="SORT_YELLOW_E" runat="server" Width="70px" 
-                BackColor="#CCFFFF" MaxLength="2">89</asp:TextBox>
+                Width="70px" BackColor="White" MaxLength="2">70</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="SORT_YELLOW_E" runat="server" Width="70px" 
+                BackColor="White" MaxLength="2">89</asp:TextBox>
             &nbsp;</strong></td>
         <td class="style2"><strong>
             <asp:TextBox ID="SORT_GREEN_S" runat="server" 
-                Width="70px" BackColor="#FFFFCC" ReadOnly="True">90</asp:TextBox>
-            &nbsp;to <asp:TextBox ID="SORT_GREEN_E" runat="server" Width="70px" 
-                BackColor="#FFFFCC" ReadOnly="True">100</asp:TextBox>
+                Width="70px" BackColor="#CCCCCC" ReadOnly="True">90</asp:TextBox>
+            &nbsp;to 
+            <asp:TextBox ID="SORT_GREEN_E" runat="server" Width="70px" 
+                BackColor="#CCCCCC" ReadOnly="True">100</asp:TextBox>
             &nbsp;</strong></td>
     </tr>
 

@@ -73,10 +73,10 @@ Partial Class Q2
 
     Protected Sub UpdatePage()
 
-        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET GREEN_E='" + (UTIL.TCDBL(SP_YELLOW_S.Text) - 1).ToString + "', YELLOW_S='" + SP_YELLOW_S.Text + "', YELLOW_E='" + SP_YELLOW_S.Text + "' WHERE PARAM='SP' ")
-        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET GREEN_E='" + (UTIL.TCDBL(RB_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + RB_YELLOW_S.Text + "', YELLOW_E='" + RB_YELLOW_S.Text + "' WHERE PARAM='RB' ")
-        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET RED_E='" + (UTIL.TCDBL(BC_YELLOW_S.Text) - 1).ToString + "', YELLOW_S='" + BC_YELLOW_S.Text + "', YELLOW_E='" + BC_YELLOW_S.Text + "' WHERE PARAM='BC'")
-        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET RED_E='" + (UTIL.TCDBL(SORT_YELLOW_S.Text) - 1).ToString + "', YELLOW_S='" + SORT_YELLOW_S.Text + "', YELLOW_E='" + SORT_YELLOW_S.Text + "' WHERE PARAM='SORT' ")
+        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET RED_S='" + (UTIL.TCDBL(SP_YELLOW_E.Text) + 0.01).ToString + "', GREEN_E='" + (UTIL.TCDBL(SP_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + SP_YELLOW_S.Text + "', YELLOW_E='" + SP_YELLOW_E.Text + "' WHERE PARAM='SP' ")
+        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET RED_S='" + (UTIL.TCDBL(RB_YELLOW_E.Text) + 0.01).ToString + "', GREEN_E='" + (UTIL.TCDBL(RB_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + RB_YELLOW_S.Text + "', YELLOW_E='" + RB_YELLOW_E.Text + "' WHERE PARAM='RB' ")
+        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET GREEN_S='" + (UTIL.TCDBL(BC_YELLOW_E.Text) + 0.01).ToString + "', RED_E='" + (UTIL.TCDBL(BC_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + BC_YELLOW_S.Text + "', YELLOW_E='" + BC_YELLOW_E.Text + "' WHERE PARAM='BC'")
+        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET GREEN_S='" + (UTIL.TCDBL(SORT_YELLOW_E.Text) + 0.01).ToString + "', RED_E='" + (UTIL.TCDBL(SORT_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + SORT_YELLOW_S.Text + "', YELLOW_E='" + SORT_YELLOW_E.Text + "' WHERE PARAM='SORT' ")
 
 
         LoadData()

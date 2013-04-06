@@ -9,13 +9,18 @@
 
     <script type='text/javascript'>
         function openSQL(sql) {
-
-            myWindow = window.open('', '', 'width=600,height=300;scrollbars=no;status=no;location=no;menubar=no;resizable=yes;toolbar=no')
-           myWindow.document.write(sql)
-           myWindow.focus()
-
+            myWindow = window.open('', '', 'width=600,height=300;scrollbars=no;status=no;location=no;menubar=no;resizable=yes;toolbar=no');
+            myWindow.document.write(sql);
+            myWindow.focus();
         }
-    
+
+        function openAdvice(advice) {
+            var url = 'Advices.aspx?param=' + advice;
+           
+           window.open(url,'', 'width=600,height=600;');     
+            //myWindow.focus()
+        }
+
     </script>
 
     <script type='text/javascript'>
@@ -86,7 +91,8 @@
             <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="ParametersName" HeaderText="Parameter Name" />
             <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="CurrentValue" HeaderText="Current Value" />
             <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="Indicator" HeaderText="Indicator" />
-            <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Sql" HeaderText="" />
+            <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Sql" HeaderText="Sql" />
+            <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Advice" HeaderText="Advice" />
 
         </Columns>
 
