@@ -8,6 +8,13 @@ Public Class DAO
     Public Shared ConnString As String = "Data Source=orcl;User Id=APP_USER;Password=d"
     ' Public Shared ConnString As String = "Data Source=DRC.WORLD;User Id=ITAPPLN_UAT;Password=alltel;"
 
+
+    'Public Shared ConnString As String = "Data Source=137.132.247.154:3306;User Id=cs5226;Password=cs5226"
+    ' Public Shared ConnString As String = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=137.132.247.154)(PORT=3306))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=cs5226;Password=cs5226;"
+
+
+    Private Shared tblParamColor As DataTable
+
     Public Shared Avg As Double
 
     Public Shared Function ExecuteNonQuery(ByVal pScript As String) As Integer
@@ -105,20 +112,14 @@ Public Class DAO
         If tble.Rows.Count > 0 Then
             Dim dRow As DataRow = d.NewRow
             val = cDeci(tble.Rows(0)("RATIO").ToString)
-            'determine color
-            If val <= 85 Then
-                color = "Green"
-            ElseIf val > 85 And val < 95 Then
-                color = "Yellow"
-            ElseIf val >= 95 Then
-                color = "Red"
-            End If
+            color = DAO.GetColor("SP", val)
 
 
             dRow(0) = "Shared Pool"
             dRow(1) = val.ToString + "%"
             dRow(2) = color
-            dRow(3) = Sql
+            dRow(3) = sql
+            dRow(4) = "SP"
             d.Rows.Add(dRow)
 
 
@@ -134,18 +135,12 @@ Public Class DAO
         If tble.Rows.Count > 0 Then
             Dim dRow As DataRow = d.NewRow
             val = cDeci(tble.Rows(0)("ratio").ToString)
-            'determine color
-            If val >= 90 Then
-                color = "Green"
-            ElseIf val >= 70 And val < 90 Then
-                color = "Yellow"
-            ElseIf val < 70 Then
-                color = "Red"
-            End If
+            color = DAO.GetColor("BC", val)
             dRow(0) = "Buffer Cache"
             dRow(1) = val.ToString + "%"
             dRow(2) = color
             dRow(3) = sql
+            dRow(4) = "BC"
             d.Rows.Add(dRow)
         End If
 
@@ -159,18 +154,12 @@ Public Class DAO
         If tble.Rows.Count > 0 Then
             Dim dRow As DataRow = d.NewRow
             val = cDeci(tble.Rows(0)("buffer").ToString)
-            'determine color
-            If val < 0.5 Then
-                color = "Green"
-            ElseIf val >= 0.5 And val <= 0.75 Then
-                color = "Yellow"
-            ElseIf val > 0.75 Then
-                color = "Red"
-            End If
+            color = DAO.GetColor("RB", val)
             dRow(0) = "Redo Log Buffer/Files"
             dRow(1) = val.ToString
             dRow(2) = color
             dRow(3) = sql
+            dRow(4) = "RB"
             d.Rows.Add(dRow)
         End If
 
@@ -185,17 +174,13 @@ Public Class DAO
             Dim dRow As DataRow = d.NewRow
             val = cDeci(tble.Rows(0)("sort").ToString)
             'determine color
-            If val >= 90 Then
-                color = "Green"
-            ElseIf val >= 70 And val < 90 Then
-                color = "Yellow"
-            ElseIf val < 70 Then
-                color = "Red"
-            End If
+            color = DAO.GetColor("SORT", val)
             dRow(0) = "Memory area used for sorting"
             dRow(1) = val.ToString + "%"
             dRow(2) = color
             dRow(3) = sql
+            dRow(4) = "SORT"
+
             d.Rows.Add(dRow)
         End If
 
@@ -207,11 +192,15 @@ Public Class DAO
         d.Columns.Add("CurrentValue")
         d.Columns.Add("Indicator")
         d.Columns.Add("Sql")
+        d.Columns.Add("Advice")
+
+        'Load Param Color Table
+        tblParamColor = DAO.GetPramColor
 
 
         AddSharedPoolData(d)
-        AddCacheHitRatio(d)
         AddRedoBuffer(d)
+        AddCacheHitRatio(d)
         AddSortingArea(d)
         Return d
     End Function
@@ -223,6 +212,28 @@ Public Class DAO
             Return 0
 
         End Try
+    End Function
+
+    Public Shared Function GetPramColor() As DataTable
+        Return DAO.ExecuteDataTable("SELECT * FROM SYS.DASH_PARAM")
+
+    End Function
+
+    Public Shared Function GetColor(ByVal pParam As String, ByVal pVal As Double) As String
+
+        Dim dRows As DataRow() = tblParamColor.Select(" PARAM='" + pParam + "' ")
+        If pVal >= UTIL.TCDBL(dRows(0)("Green_S").ToString) And pVal <= UTIL.TCDBL(dRows(0)("Green_E").ToString) Then
+            Return "Green"
+        ElseIf pVal >= UTIL.TCDBL(dRows(0)("Yellow_S").ToString) And pVal <= UTIL.TCDBL(dRows(0)("Yellow_E").ToString) Then
+            Return "Yellow"
+        ElseIf pVal >= UTIL.TCDBL(dRows(0)("Red_S").ToString) And pVal <= UTIL.TCDBL(dRows(0)("Red_E").ToString) Then
+            Return "Red"
+        End If
+        Return ""
+    End Function
+
+    Public Shared Function GetAdvice(ByVal param As String) As DataTable
+        Return DAO.ExecuteDataTable("SELECT * FROM SYS.DASH_SQL WHERE PARAM='" + param + "' ")
     End Function
 
 End Class
