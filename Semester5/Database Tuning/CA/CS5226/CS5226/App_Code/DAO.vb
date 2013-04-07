@@ -5,12 +5,12 @@ Imports System.Drawing.Color
 
 Public Class DAO
 
-    Public Shared ConnString As String = "Data Source=orcl;User Id=APP_USER;Password=d"
+    'Public Shared ConnString As String = "Data Source=orcl;User Id=APP_USER;Password=d"
     ' Public Shared ConnString As String = "Data Source=DRC.WORLD;User Id=ITAPPLN_UAT;Password=alltel;"
 
 
     'Public Shared ConnString As String = "Data Source=137.132.247.154:3306;User Id=cs5226;Password=cs5226"
-    ' Public Shared ConnString As String = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=137.132.247.154)(PORT=3306))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=cs5226;Password=cs5226;"
+    Public Shared ConnString As String = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=137.132.247.154)(PORT=3306))(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=cs5226;Password=cs5226;"
 
 
     Private Shared tblParamColor As DataTable
@@ -50,6 +50,32 @@ Public Class DAO
             End If
         End Try
         Return ds
+    End Function
+
+    Public Shared Function ExecuteSingleVal(ByVal pScript As String, ByVal ColName As String) As String
+
+        Dim ds As New DataSet
+        Dim sqlConn As OracleConnection = New OracleConnection(ConnString)
+        Dim sqlCmd As OracleCommand
+        Try
+            sqlCmd = New OracleCommand(pScript, sqlConn)
+            sqlCmd.CommandTimeout = 9999
+
+            Dim adapter As New OracleDataAdapter(sqlCmd)
+            adapter.Fill(ds, "result")
+
+            If ds.Tables.Count > 0 Then
+                Return ds.Tables(0).Rows(0)(ColName).ToString
+
+            End If
+        Catch ex As Exception
+
+        Finally
+            If sqlConn.State = ConnectionState.Open Or sqlConn.State = ConnectionState.Executing Then
+                sqlConn.Close()
+            End If
+        End Try
+        Return ""
     End Function
 
     Public Shared Function ExecuteDataTable(ByVal pScript As String) As DataTable
@@ -215,7 +241,7 @@ Public Class DAO
     End Function
 
     Public Shared Function GetPramColor() As DataTable
-        Return DAO.ExecuteDataTable("SELECT * FROM SYS.DASH_PARAM")
+        Return DAO.ExecuteDataTable("SELECT * FROM DASH_PARAM")
 
     End Function
 
@@ -233,7 +259,72 @@ Public Class DAO
     End Function
 
     Public Shared Function GetAdvice(ByVal param As String) As DataTable
-        Return DAO.ExecuteDataTable("SELECT * FROM SYS.DASH_SQL WHERE PARAM='" + param + "' ")
+        Return DAO.ExecuteDataTable("SELECT * FROM DASH_SQL WHERE PARAM='" + param + "' ")
     End Function
+
+    Public Shared Function GetYParam(ByVal pParam As String, ByVal Top As String, ByVal dt As String, ByVal xInt As String) As DataTable
+        Dim sql As New StringBuilder
+
+        sql.AppendLine("SELECT * FROM")
+        sql.AppendLine("(")
+        sql.AppendLine("SELECT * FROM SYS.DASH_PARAM_V ")
+        sql.AppendLine(" WHERE MOD(EXTRACT (HOUR FROM SNAP_DT)*60+EXTRACT (MINUTE FROM SNAP_DT),(SELECT to_number(kval) FROM SYS.DASH_CONFIG WHERE K = 'YVAL'))=0 AND PARAM='" + pParam + "'")
+        sql.AppendLine(" AND SNAP_DT >= (to_timestamp('" + dt.ToString + "') - interval '" + xInt.ToString + "' MINUTE)  AND SNAP_DT <=(to_timestamp('" + dt.ToString + "') +interval '1' MINUTE)   ")
+        sql.AppendLine(" ORDER BY SNAP_DT DESC")
+        sql.AppendLine(") x")
+
+
+        Return DAO.ExecuteDataTable(sql.ToString)
+    End Function
+
+    Public Shared Function GetXParam(ByVal pParam As String, ByVal Top As String) As DataTable
+        Dim sql As New StringBuilder
+
+        sql.AppendLine("SELECT * FROM")
+        sql.AppendLine("(")
+        sql.AppendLine("SELECT * FROM SYS.DASH_PARAM_V ")
+        sql.AppendLine("WHERE MOD(EXTRACT (HOUR FROM SNAP_DT)*60+EXTRACT (MINUTE FROM SNAP_DT),(SELECT to_number(kval) FROM SYS.DASH_CONFIG WHERE K = 'XVAL'))=0 AND PARAM='" + pParam + "'")
+        sql.AppendLine("ORDER BY SNAP_DT DESC")
+        sql.AppendLine(") x")
+        sql.AppendLine("WHERE ROWNUM<=" + Top + " ")
+
+
+        Return DAO.ExecuteDataTable(sql.ToString)
+    End Function
+
+
+   
+    Public Shared Sub GetSnapIDs(ByVal dt As String, ByVal Int As String, ByRef StartSnapID As String, ByRef EndSnapID As String)
+        Dim sb As New StringBuilder
+
+        sb.AppendLine("SELECT MIN(SNAP_ID) AS SS, MAX(SNAP_ID) ES FROM ")
+        sb.AppendLine("dba_hist_snapshot")
+        sb.AppendLine("WHERE(begin_interval_time)")
+        sb.AppendLine("BETWEEN (to_timestamp('" + dt + "') - interval '" + Int.ToString + "' MINUTE ) ")
+        sb.AppendLine("AND  '" + dt + "' ")
+
+        Dim tbl As DataTable = DAO.ExecuteDataTable(sb.ToString)
+        If tbl.Rows.Count > 0 Then
+            StartSnapID = tbl.Rows(0)("SS").ToString
+            EndSnapID = tbl.Rows(0)("ES").ToString
+        End If
+    End Sub
+
+
+
+    Public Shared Function GetReport(ByVal StartSnapID As String, ByVal EndSnapID As String) As DataTable
+        Dim sb As New StringBuilder
+
+        sb.AppendLine("SELECT output FROM table(dbms_workload_repository.awr_report_html ")
+        sb.AppendLine(" (")
+        sb.AppendLine("(SELECT DBID FROM  v$database), ")
+        sb.AppendLine("(SELECT INSTANCE_NUMBER FROM v$instance),  ")
+        sb.AppendLine("" + StartSnapID + ", " + EndSnapID + ", 0)")
+        sb.AppendLine(") ")
+
+        Return DAO.ExecuteDataTable(sb.ToString)
+     
+    End Function
+
 
 End Class

@@ -30,11 +30,9 @@
             <div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Q1.aspx" Text="Question 1"/>
-                        <asp:MenuItem NavigateUrl="~/Q2.aspx" Text="Question 2"/>
-                        <asp:MenuItem NavigateUrl="~/Q3.aspx" Text="Question 3"/>
-                        <asp:MenuItem NavigateUrl="~/Q4.aspx" Text="Question 4"/>
-                        <asp:MenuItem NavigateUrl="~/Q5.aspx" Text="Question 5"/>
+                        <asp:MenuItem NavigateUrl="~/Q1.aspx" Text="   Dashboard   "/>
+                        <asp:MenuItem NavigateUrl="~/Q2.aspx" Text="  Configuration  "/>
+                        <asp:MenuItem NavigateUrl="~/Q5.aspx" Text="Debug Interface"/>
                     </Items>
                 </asp:Menu>
             </div>
@@ -46,7 +44,7 @@
         </div>
     </div>
     <div class="style1">
-        <strong>CS5226 NUS - Team XXX </strong>
+        <strong>CS5226 NUS - Team 10 </strong>
     </div>
     </form>
 </body>
