@@ -16,10 +16,12 @@
 
         function openAdvice(advice) {
             var url = 'Advices.aspx?param=' + advice;
-           
-           window.open(url,'', 'width=600,height=600;');     
-            //myWindow.focus()
+            myWindow = window.open('', '', 'width=800,height=600;scrollbar=1;status=no;location=no;menubar=no;resizable=yes;toolbar=no');
+            myWindow.document.write('<html><body><img src="wait.gif" alt="Please Wait"/></body></html>');
+            myWindow.location = url;
+            myWindow.focus();
         }
+
 
     </script>
 
@@ -55,7 +57,7 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2 class="style4">
-        Question 1 - Database Parameters
+       Dashboard
     </h2>
     <p/>
     <div id='chart_div'></div>
@@ -87,12 +89,14 @@
 
 
         <Columns>
-
-            <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="ParametersName" HeaderText="Parameter Name" />
-            <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="CurrentValue" HeaderText="Current Value" />
-            <asp:BoundField HeaderStyle-HorizontalAlign="Left" DataField="Indicator" HeaderText="Indicator" />
-            <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Sql" HeaderText="Sql" />
-            <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Advice" HeaderText="Advice" />
+          
+            <asp:BoundField ItemStyle-Width="25%" HeaderStyle-HorizontalAlign="Left" DataField="ParametersName" HeaderText="Parameter Name" />
+            <asp:BoundField ItemStyle-Width="13%" HeaderStyle-HorizontalAlign="Left" DataField="CurrentValue" HeaderText="Current Value" />
+            <asp:BoundField ItemStyle-Width="17%"  HeaderStyle-HorizontalAlign="Left" DataField="Indicator" HeaderText="Indicator" />
+            <asp:BoundField ItemStyle-Width="17%"  ItemStyle-HorizontalAlign="Center" HeaderText="View Details" />            
+            <asp:BoundField ItemStyle-Width="17%"  ItemStyle-HorizontalAlign="Center" DataField="Advice" HeaderText="Advice" />
+            <asp:BoundField ItemStyle-Width="17%"  ItemStyle-HorizontalAlign="Center" DataField="Sql" HeaderText="Sql" />
+            
 
         </Columns>
 

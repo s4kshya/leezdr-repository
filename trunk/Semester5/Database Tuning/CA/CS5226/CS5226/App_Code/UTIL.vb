@@ -1,5 +1,5 @@
 ﻿Imports Microsoft.VisualBasic
-
+Imports System.Data
 Public Class UTIL
 
     Public Shared Function isPercent(ByVal pVal As String) As Boolean
@@ -46,4 +46,49 @@ Public Class UTIL
         Return m.Success
     End Function
 
+    Public Shared Function JSON_DataTable(ByVal dt As DataTable) As String
+
+        Dim JsonString As New StringBuilder()
+
+        JsonString.Append("{ ")
+        JsonString.Append("""TABLE"":[{ ")
+        JsonString.Append("""ROW"":[ ")
+
+        For i As Integer = 0 To dt.Rows.Count - 1
+
+            JsonString.Append("{ ")
+            JsonString.Append("""COL"":[ ")
+
+            For j As Integer = 0 To dt.Columns.Count - 1
+                If j < dt.Columns.Count - 1 Then
+                    JsonString.Append("{" & """DATA"":""" & dt.Rows(i)(j).ToString() & """},")
+                ElseIf j = dt.Columns.Count - 1 Then
+                    JsonString.Append("{" & """DATA"":""" & dt.Rows(i)(j).ToString() & """}")
+                End If
+            Next
+            'end Of String
+
+            If i = dt.Rows.Count - 1 Then
+                JsonString.Append("]} ")
+            Else
+                JsonString.Append("]}, ")
+            End If
+        Next
+        JsonString.Append("]}]}")
+        Return JsonString.ToString()
+
+    End Function
+
+    Public Shared Function GetPName(ByVal pP As String) As String
+        Select Case pP
+            Case "SP"
+                Return "Shared Pool"
+            Case "RB"
+                Return "Redo Log Buffer"
+            Case "BC"
+                Return "Buffer Cache"
+            Case "SORT"
+                Return "Memory area used for Sortingl"
+        End Select
+    End Function
 End Class

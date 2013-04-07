@@ -14,7 +14,7 @@ Partial Class Q2
     End Sub
 
     Protected Sub LoadData()
-        Dim tbl As DataTable = DAO.ExecuteDataTable("SELECT * FROM SYS.DASH_PARAM")
+        Dim tbl As DataTable = DAO.ExecuteDataTable("SELECT * FROM DASH_PARAM")
         For Each r As DataRow In tbl.Rows
             CType(Me.Master.FindControl("MainContent").FindControl(r("PARAM").ToString + "_GREEN_S"), TextBox).Text = r("GREEN_S").ToString
             CType(Me.Master.FindControl("MainContent").FindControl(r("PARAM").ToString + "_GREEN_E"), TextBox).Text = r("GREEN_E").ToString
@@ -73,10 +73,10 @@ Partial Class Q2
 
     Protected Sub UpdatePage()
 
-        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET RED_S='" + (UTIL.TCDBL(SP_YELLOW_E.Text) + 0.01).ToString + "', GREEN_E='" + (UTIL.TCDBL(SP_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + SP_YELLOW_S.Text + "', YELLOW_E='" + SP_YELLOW_E.Text + "' WHERE PARAM='SP' ")
-        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET RED_S='" + (UTIL.TCDBL(RB_YELLOW_E.Text) + 0.01).ToString + "', GREEN_E='" + (UTIL.TCDBL(RB_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + RB_YELLOW_S.Text + "', YELLOW_E='" + RB_YELLOW_E.Text + "' WHERE PARAM='RB' ")
-        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET GREEN_S='" + (UTIL.TCDBL(BC_YELLOW_E.Text) + 0.01).ToString + "', RED_E='" + (UTIL.TCDBL(BC_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + BC_YELLOW_S.Text + "', YELLOW_E='" + BC_YELLOW_E.Text + "' WHERE PARAM='BC'")
-        DAO.ExecuteNonQuery("UPDATE SYS.DASH_PARAM SET GREEN_S='" + (UTIL.TCDBL(SORT_YELLOW_E.Text) + 0.01).ToString + "', RED_E='" + (UTIL.TCDBL(SORT_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + SORT_YELLOW_S.Text + "', YELLOW_E='" + SORT_YELLOW_E.Text + "' WHERE PARAM='SORT' ")
+        DAO.ExecuteNonQuery("UPDATE DASH_PARAM SET RED_S='" + (UTIL.TCDBL(SP_YELLOW_E.Text) + 0.01).ToString + "', GREEN_E='" + (UTIL.TCDBL(SP_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + SP_YELLOW_S.Text + "', YELLOW_E='" + SP_YELLOW_E.Text + "' WHERE PARAM='SP' ")
+        DAO.ExecuteNonQuery("UPDATE DASH_PARAM SET RED_S='" + (UTIL.TCDBL(RB_YELLOW_E.Text) + 0.01).ToString + "', GREEN_E='" + (UTIL.TCDBL(RB_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + RB_YELLOW_S.Text + "', YELLOW_E='" + RB_YELLOW_E.Text + "' WHERE PARAM='RB' ")
+        DAO.ExecuteNonQuery("UPDATE DASH_PARAM SET GREEN_S='" + (UTIL.TCDBL(BC_YELLOW_E.Text) + 0.01).ToString + "', RED_E='" + (UTIL.TCDBL(BC_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + BC_YELLOW_S.Text + "', YELLOW_E='" + BC_YELLOW_E.Text + "' WHERE PARAM='BC'")
+        DAO.ExecuteNonQuery("UPDATE DASH_PARAM SET GREEN_S='" + (UTIL.TCDBL(SORT_YELLOW_E.Text) + 0.01).ToString + "', RED_E='" + (UTIL.TCDBL(SORT_YELLOW_S.Text) - 0.01).ToString + "', YELLOW_S='" + SORT_YELLOW_S.Text + "', YELLOW_E='" + SORT_YELLOW_E.Text + "' WHERE PARAM='SORT' ")
 
 
         LoadData()
