@@ -291,8 +291,6 @@ Public Class DAO
 
         Return DAO.ExecuteDataTable(sql.ToString)
     End Function
-
-
    
     Public Shared Sub GetSnapIDs(ByVal dt As String, ByVal Int As String, ByRef StartSnapID As String, ByRef EndSnapID As String)
         Dim sb As New StringBuilder
@@ -310,8 +308,6 @@ Public Class DAO
         End If
     End Sub
 
-
-
     Public Shared Function GetReport(ByVal StartSnapID As String, ByVal EndSnapID As String) As DataTable
         Dim sb As New StringBuilder
 
@@ -326,5 +322,18 @@ Public Class DAO
      
     End Function
 
+    Public Shared Function SaveXY(ByVal x As Integer, ByVal y As Integer) As String
+        Dim err As String = ""
+        Try
+            DAO.ExecuteNonQuery("UPDATE SYS.DASH_CONFIG SET KVAL='" + x.ToString + "' WHERE K='XVAL' ")
+            DAO.ExecuteNonQuery("UPDATE SYS.DASH_CONFIG SET KVAL='" + y.ToString + "' WHERE K='YVAL' ")
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+
+
+        Return ""
+
+    End Function
 
 End Class

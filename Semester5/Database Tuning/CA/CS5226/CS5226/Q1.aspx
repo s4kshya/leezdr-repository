@@ -8,6 +8,10 @@
     <script type='text/javascript' src='https://www.google.com/jsapi'></script>
 
     <script type='text/javascript'>
+
+
+
+
         function openSQL(sql) {
             myWindow = window.open('', '', 'width=600,height=300;scrollbars=no;status=no;location=no;menubar=no;resizable=yes;toolbar=no');
             myWindow.document.write(sql);
@@ -56,6 +60,25 @@
 
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+  <script type='text/javascript'>
+      var count = 5;
+
+      var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+
+      function timer() {
+          
+          count = count - 1;
+        
+          if (count <= 0) {
+              location.reload(1);
+          }
+
+          document.getElementById("sec").innerHTML = '<b>Page will refresh in ' + count + ' Seconds</b>';
+     
+      }
+
+
+</script>
     <h2 class="style4">
        Dashboard
     </h2>
@@ -64,15 +87,8 @@
   
 
 
-
-
-
-
-
-
-
   <table>
-  <tr><td></td></tr>
+  <tr><td id="sec" align="right"><b>Page will refresh in 5 Seconds</b></td></tr>
   </table>
 
 

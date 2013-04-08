@@ -37,8 +37,8 @@ Partial Class Q1
             End If
 
             e.Row.Cells(2).Text = "<div style=""background-color:" + e.Row.Cells(2).Text + """ >&nbsp;</div>"
-            e.Row.Cells(5).Text = "<a href=""javascript:openSQL('" + Context.Server.HtmlEncode(e.Row.Cells(3).Text) + "');"">View Sql</div>"
-            e.Row.Cells(3).Text = "<a href=""javascript:this.location.href='historical.aspx?pid=" + pid + "'"");"">View Details</div>"
+            e.Row.Cells(5).Text = "<a href=""javascript:openSQL('" + Context.Server.HtmlEncode(e.Row.Cells(4).Text) + "');"">View Sql</div>"
+            e.Row.Cells(3).Text = "<a href=""javascript:window.location.href='historical.aspx?pid=" + pid + "'"");"">View Details</div>"
 
 
          
