@@ -130,7 +130,7 @@ Public Class DAO
         Return New DataTable
     End Function
 
-    Public Shared Sub AddSharedPoolData(ByRef d As DataTable)
+    Public Shared Sub AddSharedPoolData(ByRef d As DataTable, ByRef agg As Double)
         Dim sql As String = "select round ((info.bytes - stat.bytes)*100/info.bytes, 2) ratio  from v$sgainfo info, v$sgastat stat  where info.name = 'Shared Pool Size' and stat.pool = 'shared pool' and lower(stat.name) = 'free memory'"
         Dim tble As DataTable = ExecuteDataTable(sql)
         Dim val As Double
@@ -138,7 +138,7 @@ Public Class DAO
         If tble.Rows.Count > 0 Then
             Dim dRow As DataRow = d.NewRow
             val = cDeci(tble.Rows(0)("RATIO").ToString)
-            color = DAO.GetColor("SP", val)
+            color = DAO.GetColor("SP", val, agg)
 
 
             dRow(0) = "Shared Pool"
@@ -153,7 +153,7 @@ Public Class DAO
 
     End Sub
 
-    Public Shared Sub AddCacheHitRatio(ByRef d As DataTable)
+    Public Shared Sub AddCacheHitRatio(ByRef d As DataTable, ByRef agg As Double)
         Dim sql As String = "SELECT ROUND((1-(phy.VALUE / (cur.VALUE + con.VALUE)))*100,2) as ratio FROM v$sysstat cur, v$sysstat con, v$sysstat phy WHERE cur.name = 'db block gets' AND con.name = 'consistent gets' AND phy.name = 'physical reads'"
         Dim tble As DataTable = DAO.ExecuteDataTable(sql)
         Dim val As Double
@@ -161,7 +161,7 @@ Public Class DAO
         If tble.Rows.Count > 0 Then
             Dim dRow As DataRow = d.NewRow
             val = cDeci(tble.Rows(0)("ratio").ToString)
-            color = DAO.GetColor("BC", val)
+            color = DAO.GetColor("BC", val, agg)
             dRow(0) = "Buffer Cache"
             dRow(1) = val.ToString + "%"
             dRow(2) = color
@@ -172,7 +172,7 @@ Public Class DAO
 
     End Sub
 
-    Public Shared Sub AddRedoBuffer(ByRef d As DataTable)
+    Public Shared Sub AddRedoBuffer(ByRef d As DataTable, ByRef agg As Double)
         Dim sql As String = "select round (a.value/b.value * 100, 2) buffer from v$sysstat a, v$sysstat b where a.name = 'redo buffer allocation retries' and b.name = 'redo entries'"
         Dim tble As DataTable = DAO.ExecuteDataTable(sql)
         Dim val As Double
@@ -180,7 +180,7 @@ Public Class DAO
         If tble.Rows.Count > 0 Then
             Dim dRow As DataRow = d.NewRow
             val = cDeci(tble.Rows(0)("buffer").ToString)
-            color = DAO.GetColor("RB", val)
+            color = DAO.GetColor("RB", val, agg)
             dRow(0) = "Redo Log Buffer/Files"
             dRow(1) = val.ToString
             dRow(2) = color
@@ -191,7 +191,7 @@ Public Class DAO
 
     End Sub
 
-    Public Shared Sub AddSortingArea(ByRef d As DataTable)
+    Public Shared Sub AddSortingArea(ByRef d As DataTable, ByRef agg As Double)
         Dim sql As String = "SELECT round (mem.value*100/(disk.value + mem.value), 2) sort FROM v$sysstat disk, v$sysstat mem WHERE mem.name = 'sorts (memory)' AND disk.name = 'sorts (disk)'"
         Dim tble As DataTable = DAO.ExecuteDataTable(sql)
         Dim val As Double
@@ -200,7 +200,7 @@ Public Class DAO
             Dim dRow As DataRow = d.NewRow
             val = cDeci(tble.Rows(0)("sort").ToString)
             'determine color
-            color = DAO.GetColor("SORT", val)
+            color = DAO.GetColor("SORT", val, agg)
             dRow(0) = "Memory area used for sorting"
             dRow(1) = val.ToString + "%"
             dRow(2) = color
@@ -212,7 +212,7 @@ Public Class DAO
 
     End Sub
 
-    Public Shared Function GetDataBaseParameters() As DataTable
+    Public Shared Function GetDataBaseParameters(ByRef agg As Double) As DataTable
         Dim d As New DataTable
         d.Columns.Add("ParametersName")
         d.Columns.Add("CurrentValue")
@@ -224,10 +224,12 @@ Public Class DAO
         tblParamColor = DAO.GetPramColor
 
 
-        AddSharedPoolData(d)
-        AddRedoBuffer(d)
-        AddCacheHitRatio(d)
-        AddSortingArea(d)
+        AddSharedPoolData(d, agg)
+        AddRedoBuffer(d, agg)
+        AddCacheHitRatio(d, agg)
+        AddSortingArea(d, agg)
+
+        agg = IIf(agg = 0, 0, (agg / 8) * 100)
         Return d
     End Function
 
@@ -245,14 +247,16 @@ Public Class DAO
 
     End Function
 
-    Public Shared Function GetColor(ByVal pParam As String, ByVal pVal As Double) As String
+    Public Shared Function GetColor(ByVal pParam As String, ByVal pVal As Double, ByRef agg As Double) As String
 
         Dim dRows As DataRow() = tblParamColor.Select(" PARAM='" + pParam + "' ")
         If pVal >= UTIL.TCDBL(dRows(0)("Green_S").ToString) And pVal <= UTIL.TCDBL(dRows(0)("Green_E").ToString) Then
             Return "Green"
         ElseIf pVal >= UTIL.TCDBL(dRows(0)("Yellow_S").ToString) And pVal <= UTIL.TCDBL(dRows(0)("Yellow_E").ToString) Then
+            agg = agg + 1
             Return "Yellow"
         ElseIf pVal >= UTIL.TCDBL(dRows(0)("Red_S").ToString) And pVal <= UTIL.TCDBL(dRows(0)("Red_E").ToString) Then
+            agg = agg + 2
             Return "Red"
         End If
         Return ""

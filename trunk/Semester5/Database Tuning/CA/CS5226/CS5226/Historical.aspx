@@ -41,7 +41,7 @@
 <tr>
 
 <td align="left"">
-    <asp:Button ID="btnBack" runat="server" Text=" Back " Width="135px" />
+    Records to display
     <asp:DropDownList AutoPostBack="true" ID="ddRec" runat="server">
     <asp:ListItem Text="10" Value="10" Selected="True"></asp:ListItem>
     <asp:ListItem Text="20" Value="20"></asp:ListItem>
@@ -56,12 +56,16 @@
 
 
 <td align="right">
-<asp:Label ID="lblXInt" runat="server"></asp:Label> 
+    <asp:Literal ID="lblXInt" runat="server"></asp:Literal>
 </td>
 </tr>
 
 <tr><td colspan="2">
     <asp:Literal ID="litChart" runat="server"></asp:Literal>
+    </td></tr>
+
+<tr><td colspan="2">
+    <asp:Literal ID="litLInk" runat="server"></asp:Literal>
     </td></tr>
 <tr><td colspan="2">
     <asp:GridView  ID="gvParam" runat="server" AutoGenerateColumns="False"  CellPadding="4" ForeColor="#333333" 

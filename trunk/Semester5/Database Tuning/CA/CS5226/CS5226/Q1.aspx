@@ -29,28 +29,7 @@
 
     </script>
 
-    <script type='text/javascript'>
-        google.load('visualization', '1', { packages: ['gauge'] });
-        google.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],
-          ['DB Health', 91]
-        ]);
 
-            var options = {
-                width: 250, height: 250,
-                greenFrom: 0, greenTo: 59,
-                yellowFrom: 60, yellowTo: 79,
-                redFrom: 80, redTo: 100
-            };
-
-            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-            chart.draw(data, options);
-
-            
-        }
-    </script>
 
 </asp:Content>
 
@@ -83,7 +62,8 @@
        Dashboard
     </h2>
     <p/>
-    <div id='chart_div'></div>
+    <asp:Literal ID="litChart" runat="server"></asp:Literal>
+       
   
 
 

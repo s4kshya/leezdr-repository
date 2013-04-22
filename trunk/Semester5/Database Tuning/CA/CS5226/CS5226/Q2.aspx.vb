@@ -101,6 +101,34 @@ Partial Class Q2
             err = err + " - Invalid Input, Memory area used for Sorting - Yellow End<br>"
         End If
 
+        If UTIL.isPercent(SP_YELLOW_S.Text) And UTIL.isPercent(SP_YELLOW_E.Text) Then
+            If Convert.ToDouble(SP_YELLOW_S.Text) >= Convert.ToDouble(SP_YELLOW_E.Text) Then
+                err = err + " - Shared Pool Yellow Start cannot be larger or equal to Shared Pool Yellow End<br>"
+            End If
+
+        End If
+
+        If UTIL.isPercent(RB_YELLOW_S.Text) And UTIL.isPercent(RB_YELLOW_E.Text) Then
+            If Convert.ToDouble(RB_YELLOW_S.Text) >= Convert.ToDouble(RB_YELLOW_E.Text) Then
+                err = err + " - Redo Buffer Yellow Start cannot be larger or equal to Redo Buffer Yellow End<br>"
+            End If
+
+        End If
+
+        If UTIL.isPercent(BC_YELLOW_S.Text) And UTIL.isPercent(BC_YELLOW_E.Text) Then
+            If Convert.ToDouble(BC_YELLOW_S.Text) >= Convert.ToDouble(BC_YELLOW_E.Text) Then
+                err = err + " - Buffer Cache Yellow Start cannot be larger or equal to Buffer Cache Yellow End<br>"
+            End If
+
+        End If
+
+        If UTIL.isPercent(SORT_YELLOW_S.Text) And UTIL.isPercent(SORT_YELLOW_E.Text) Then
+            If Convert.ToDouble(SORT_YELLOW_S.Text) >= Convert.ToDouble(SORT_YELLOW_E.Text) Then
+                err = err + " - SORT Memory Yellow Start cannot be larger or equal to SORT Memory Yellow End<br>"
+            End If
+
+        End If
+
         Return err
     End Function
 
