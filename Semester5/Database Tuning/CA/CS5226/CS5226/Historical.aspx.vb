@@ -28,15 +28,17 @@ Partial Class Historical
             dt = Request.QueryString("dt").ToString
             xInt = DAO.ExecuteSingleVal("SELECT kval FROM SYS.DASH_CONFIG WHERE K = 'XVAL'", "kval")
             yInt = DAO.ExecuteSingleVal("SELECT kval FROM SYS.DASH_CONFIG WHERE K = 'YVAL'", "kval")
-            lblXInt.Text = "X Interval: " + xInt + " Minutes, Y Interval: " + yInt + "Minutes"
+            lblXInt.Text = "<b>X Interval:</b> " + xInt + " Minutes, <b>Y Interval:</b> " + yInt + "Minutes"
             dTbl = DAO.GetYParam(pid, ddRec.SelectedValue, dt, xInt)
-            ddRec.Visible = False
-            btnBack.Attributes.Add("onclick", "javascript:this.location.href='Historical.aspx?pid='" + pid)
+            ddRec.Enabled = False
+            litLInk.Text = "<a href=""javascript:location.href='Historical.aspx?pid=" + pid + "'""><< BACK</div>"
+
+            gvParam.Columns(4).Visible = False
 
         Else
             xInt = DAO.ExecuteSingleVal("SELECT kval FROM SYS.DASH_CONFIG WHERE K = 'XVAL'", "kval")
-            lblXInt.Text = "X Interval: " + xInt + " Minutes"
-            btnBack.Visible = False
+            lblXInt.Text = "<b>X Interval:</b> " + xInt + " Minutes"
+
             dTbl = DAO.GetXParam(pid, ddRec.SelectedValue)
         End If
 
@@ -99,9 +101,9 @@ Partial Class Historical
     End Sub
 
     Protected Sub ddRec_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddRec.SelectedIndexChanged
-        Dim pID As String = "SP"
-        Dim pName As String = UTIL.GetPName(pID)
-        ' LoadGrid(pID, pName)
+        If Not Request.QueryString("pid") = Nothing Then
+            LoadPage()
+        End If
     End Sub
 
 

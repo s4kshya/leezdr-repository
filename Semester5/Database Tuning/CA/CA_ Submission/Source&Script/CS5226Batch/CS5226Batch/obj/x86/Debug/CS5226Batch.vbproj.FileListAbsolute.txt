@@ -1,0 +1,10 @@
+C:\CS5226Batch\CS5226Batch\bin\Debug\CS5226Batch.exe
+C:\CS5226Batch\CS5226Batch\bin\Debug\CS5226Batch.pdb
+C:\CS5226Batch\CS5226Batch\bin\Debug\CS5226Batch.xml
+C:\CS5226Batch\CS5226Batch\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\CS5226Batch\CS5226Batch\obj\x86\Debug\CS5226Batch.Resources.resources
+C:\CS5226Batch\CS5226Batch\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\CS5226Batch\CS5226Batch\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\CS5226Batch\CS5226Batch\obj\x86\Debug\CS5226Batch.exe
+C:\CS5226Batch\CS5226Batch\obj\x86\Debug\CS5226Batch.xml
+C:\CS5226Batch\CS5226Batch\obj\x86\Debug\CS5226Batch.pdb
